@@ -4,6 +4,10 @@
 
 package es.poc.factory;
 
+import es.poc.factory.entity.payment.Payment;
+import es.poc.factory.entity.payment.PaymentFactory;
+import es.poc.factory.entity.payment.enums.PaymentType;
+
 /**
  *
  * @author bgd
@@ -11,6 +15,16 @@ package es.poc.factory;
 public class Factory {
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+        PaymentFactory paymentFactory = new PaymentFactory();
+        Payment paymentVisa = paymentFactory.getPayment(PaymentType.VISA);
+        System.out.println(paymentVisa.howAmI());
+        
+        Payment paymentPayPal = paymentFactory.getPayment(PaymentType.PAYPAL);
+        System.out.println(paymentPayPal.howAmI());
+        
+        System.out.println(paymentFactory.getPayment(PaymentType.GOOGLE_PAY).howAmI());
+        
+        System.out.println(paymentFactory.getPayment(PaymentType.APPLE_PAY).howAmI());
+        
     }
 }
