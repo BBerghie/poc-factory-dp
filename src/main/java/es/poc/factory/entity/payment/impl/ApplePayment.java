@@ -16,6 +16,5 @@ public class ApplePayment implements Payment {
     public String howAmI() {
         return ApplePayment.class.getName();
     }
-    
 }
 
